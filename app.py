@@ -20,7 +20,7 @@ def predict():
     sal = float(request.form['sal'])
     feature = np.array([[age,sal]])
     stdFeatures = scFeatures.transform(feature)
-    predLabel = model.predict_classes(stdFeatures)
+    predLabel = model.predict(stdFeatures)
 
     return render_template('index.html', prediction_text='Given customer is a {} customer'.format('Good' if predLabel[0][0] == 1 else 'Bad'))
 
